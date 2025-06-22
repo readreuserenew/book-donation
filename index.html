@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Read Reuse Renew</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>📚 Read Reuse Renew</h1>
+
+    <nav>
+      <button onclick="showSection('login')">Login</button>
+      <button onclick="showSection('register')">Register</button>
+      <button onclick="showSection('home')">Home</button>
+      <button onclick="showSection('donate')">Donate</button>
+      <button onclick="showSection('chat')">Chat</button>
+    </nav>
+
+    <!-- Login -->
+    <div id="login">
+      <h2>Login</h2>
+      <form id="loginForm" onsubmit="return validateLogin()">
+        <input type="email" id="loginEmail" placeholder="Email" />
+        <input type="password" id="loginPassword" placeholder="Password" />
+        <div class="terms"><input type="checkbox" /> Remember Me</div>
+        <button type="submit">Login</button>
+        <p><a href="#">Forgot Password?</a></p>
+        <p>Don't have an account? <a href="#" onclick="showSection('register')">Register</a></p>
+        <p id="loginError" class="error-text"></p>
+      </form>
+    </div>
+
+    <!-- Register -->
+    <div id="register" class="hidden">
+      <h2>Register</h2>
+      <form id="registerForm" onsubmit="return validateRegister()">
+        <input type="text" id="regUsername" placeholder="Username" />
+        <input type="email" id="regEmail" placeholder="Email" />
+        <input type="password" id="regPassword" placeholder="Password" />
+        <div class="terms"><input type="checkbox" id="termsCheckbox" /> I accept Terms & Conditions</div>
+        <button type="submit">Register</button>
+        <p>Already have an account? <a href="#" onclick="showSection('login')">Login</a></p>
+        <p id="registerError" class="error-text"></p>
+      </form>
+    </div>
+
+    <!-- Home -->
+    <div id="home" class="hidden">
+      <h2>Welcome to Read Reuse Renew</h2>
+      <p>Books are the foundation of knowledge and growth. Donate your old books and light up a mind!</p>
+      <img src="https://cdn.pixabay.com/photo/2016/11/29/09/32/books-1868068_1280.jpg" class="home-img" />
+    </div>
+
+    <!-- Donate -->
+    <div id="donate" class="hidden">
+      <h2>Donate a Book</h2>
+      <form id="donateForm" onsubmit="return validateDonation()">
+        <input type="text" id="bookTitle" placeholder="Book Title" />
+        <input type="text" id="bookAuthor" placeholder="Author" />
+        <input type="file" id="bookImage" onchange="previewImage()" />
+        <img id="preview" src="#" alt="Image Preview" style="display:none;" />
+        <input type="text" id="donorName" placeholder="Your Name" />
+        <input type="text" id="donorLocation" placeholder="Location" />
+        <button type="submit">Submit Donation</button>
+        <p id="donateError" class="error-text"></p>
+      </form>
+    </div>
+
+    <!-- Chat -->
+    <div id="chat" class="hidden">
+      <h2>Chat with Donors</h2>
+      <textarea placeholder="Type your message here..."></textarea>
+      <button>Send</button>
+      <p><strong>Note:</strong> This is a placeholder chat box for connecting with donors.</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
